@@ -19,16 +19,14 @@ def para_one_hot(msg): #RAFA
         for linha in alfabeto_matriz:
             coluna.append(linha[indice])
         msg_matriz.append(coluna)
-
-    
  
 
     msg_matriz = np.array(msg_matriz)
     msg_matriz = msg_matriz.transpose()
-    # msg_codificada = np.dot(msg_matriz, cifra)
     
     return msg_matriz
 
+# print(para_one_hot("abc"))
 
 def para_string(M): #RIBAS
     return 
@@ -39,15 +37,30 @@ def cifrar(msg, P): #RAFA
 
     return msg_cifrada
 
-cifra = np.roll(np.eye(26, dtype=int), 1, axis=0)
-print(cifra)
-print(cifrar("baabc", cifra))
+
 
 def de_cifrar(msg, P): #RIBAS
     return 
 
 def enigma(msg, P, E): #RAFA
-    return 
+    msg_matriz = para_one_hot(msg)
+
+    msg_cifrada = msg_matriz
+
+    for j in range(len(msg_matriz[0])):
+        n_msg = np.dot(P, msg_cifrada)
+        for i in range (len(msg_matriz)):
+            msg_cifrada[i][j] = n_msg[i][j]
+        P = np.dot(P, E)
+
+
+    return msg_cifrada
+
+cifra = np.roll(np.eye(26, dtype=int), 1, axis=1)
+e = np.roll(np.eye(26, dtype=int), 2, axis=1)
+
+
+
 
 def de_enigma(msg, P, E): #RIBAS
     return
