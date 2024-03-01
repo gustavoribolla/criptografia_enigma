@@ -1,10 +1,8 @@
 import numpy as np
 
-
-def para_one_hot(msg): #RAFA
+def para_one_hot(msg):
     alfabeto = "abcdefghijklmnopqrstuvwxyz"
     alfabeto_matriz = np.eye(26, dtype=int)
-    
 
     indices = []
     msg_matriz = []
@@ -26,25 +24,37 @@ def para_one_hot(msg): #RAFA
     
     return msg_matriz
 
-# print(para_one_hot("abc"))
+def para_string(M):
+   
+    string = ''
+    alfabeto = 'abcdefghijklmnopqrstuvwxyz'
 
-def para_string(M): #RIBAS
-    return 
+    for tamanho in range(len(M[0])):
+        for letra in range(len(M)):
+            if M[letra][tamanho] == 1:
+                string += alfabeto[letra]
+                
+    return string
 
-def cifrar(msg, P): #RAFA
+def cifrar(msg, P):
     msg_matriz = para_one_hot(msg)
-    msg_cifrada = np.dot(P, msg_matriz)
+    matriz_cifrada = np.dot(P, msg_matriz)
+    msg_cifrada = para_string(matriz_cifrada)
 
     return msg_cifrada
 
+def de_cifrar(msg, P):
 
-
-def de_cifrar(msg, P): #RIBAS
-    return 
-
-def enigma(msg, P, E): #RAFA
+    P_inversa = np.linalg.inv(P)
     msg_matriz = para_one_hot(msg)
+    matriz_decifrada = np.dot(P_inversa, msg_matriz)
+    msg_original = para_string(matriz_decifrada)
 
+    return msg_original
+
+def enigma(msg, P, E):
+
+    msg_matriz = para_one_hot(msg)
     msg_cifrada = msg_matriz
 
     for j in range(len(msg_matriz[0])):
@@ -53,14 +63,23 @@ def enigma(msg, P, E): #RAFA
             msg_cifrada[i][j] = n_msg[i][j]
         P = np.dot(P, E)
 
-
     return msg_cifrada
 
-cifra = np.roll(np.eye(26, dtype=int), 1, axis=1)
-e = np.roll(np.eye(26, dtype=int), 2, axis=1)
+def de_enigma(msg, P, E):
+    
+    P_inv = np.linalg.inv(P)
+    E_inv = np.linalg.inv(E)
+  
+    msg_matriz = para_one_hot(msg)
+    msg_decifrada = msg_matriz
 
+    for j in range(len(msg_matriz[0])):
 
+        n_msg = np.dot(P_inv, msg_decifrada)
+        for i in range(len(msg_matriz)):
+            msg_decifrada[i][j] = n_msg[i][j]
+        P_inv = np.dot(P_inv, E_inv)
 
+    msg_original = para_string(msg_decifrada)
 
-def de_enigma(msg, P, E): #RIBAS
-    return
+    return msg_original
