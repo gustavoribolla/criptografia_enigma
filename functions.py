@@ -11,6 +11,7 @@ def para_one_hot(msg):
         for j in range(len(alfabeto)):
             if msg[i] == alfabeto[j]:
                 indices.append(j)
+
    
     for indice in indices:
         coluna = []
@@ -21,8 +22,12 @@ def para_one_hot(msg):
 
     msg_matriz = np.array(msg_matriz)
     msg_matriz = msg_matriz.transpose()
+
+    if len(msg_matriz) ==0:
+        msg_matriz = np.zeros((26,1), dtype=int)
     
     return msg_matriz
+
 
 def para_string(M):
    
@@ -63,6 +68,8 @@ def enigma(msg, P, E):
             msg_cifrada[i][j] = n_msg[i][j]
         P = np.dot(P, E)
 
+    msg_cifrada = para_string(msg_cifrada)
+
     return msg_cifrada
 
 def de_enigma(msg, P, E):
@@ -83,3 +90,4 @@ def de_enigma(msg, P, E):
     msg_original = para_string(msg_decifrada)
 
     return msg_original
+
