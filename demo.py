@@ -1,4 +1,4 @@
-from functions import *
+from codificador_de_matrizes_rafaela_ribolla import *
 
 P = np.roll(np.eye(26, dtype=int), 1, axis=0)
 E = np.roll(np.eye(26, dtype=int), 2, axis=1)
