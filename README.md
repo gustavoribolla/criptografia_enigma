@@ -99,9 +99,22 @@ Através da rota ('/enigma'), método POST que devolve, dado uma palavra, sua fo
 ### 5. De Enigma:
 Através da rota ('/de_enigma'), método POST que devolve, dado uma palavra formato Enigma, sua forma original.
 
+## Biblioteca Python:
+Para que as funções criadas possam ser utilizadas por outros programdores, as disponibilazamos como uma biblioteca. Para utilizar a biblioteca basta instala-la com o seguinte código:
+
+```
+pip install codificador-de-matrizes-rafaela-ribolla==0.0.1
+```
+E então importar a biblioteca no arquivo, o que pode ser feito pelo código:
+```
+import codificador-de-matrizes-rafaela-ribolla
+```
+
 ## Referências:
 1. [ChatGPT](https://chat.openai.com/) para saciar dúvidas relacionadas ao desenvolvimento;<br>
 2. [Site Horizontes](https://horizontes.sbc.org.br/index.php/2016/11/alan-turing-e-a-enigma/) para pesquisa da Enigma de Alan Turing;
+3. [Site Medium](https://towardsdatascience.com/deep-dive-create-and-publish-your-first-python-library-f7f618719e14) para pesquisa sobre publicação da biblioteca;
+4. [Site Clickup](https://doc.clickup.com/36904728/d/h/1367rr-543/246df89507b2ab3) para pesquisa sobre publicação da biblioteca;;
 
 ## Equipe:
 Projeto desenvolvido por Gustavo Colombi Ribolla e Rafaela Aférri.
