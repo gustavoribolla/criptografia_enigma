@@ -8,6 +8,8 @@ def para_one_hot(msg):
     msg_matriz = []
 
     for i in range(len(msg)):
+        if msg[i] not in alfabeto:
+            return "Alguns dos caracteres da mensagem não estão no alfabeto. Por favor, insira apenas letras minúsculas.", False
         for j in range(len(alfabeto)):
             if msg[i] == alfabeto[j]:
                 indices.append(j)
@@ -23,10 +25,10 @@ def para_one_hot(msg):
     msg_matriz = np.array(msg_matriz)
     msg_matriz = msg_matriz.transpose()
 
-    if len(msg_matriz) ==0:
-        msg_matriz = np.zeros((26,1), dtype=int)
+    # if len(msg_matriz) ==0:
+    #     return "Alguns dos caracteres da mensagem não estão no alfabeto. Por favor, insira apenas letras minúsculas."
     
-    return msg_matriz
+    return msg_matriz, True
 
 
 def para_string(M):
@@ -42,16 +44,17 @@ def para_string(M):
     return string
 
 def cifrar(msg, P):
-    msg_matriz = para_one_hot(msg)
+    msg_matriz, validacao = para_one_hot(msg)
     matriz_cifrada = np.dot(P, msg_matriz)
     msg_cifrada = para_string(matriz_cifrada)
 
     return msg_cifrada
 
+
 def de_cifrar(msg, P):
 
     P_inversa = np.linalg.inv(P)
-    msg_matriz = para_one_hot(msg)
+    msg_matriz, validacao = para_one_hot(msg)
     matriz_decifrada = np.dot(P_inversa, msg_matriz)
     msg_original = para_string(matriz_decifrada)
 
@@ -59,7 +62,7 @@ def de_cifrar(msg, P):
 
 def enigma(msg, P, E):
 
-    msg_matriz = para_one_hot(msg)
+    msg_matriz, validacao = para_one_hot(msg)
     msg_cifrada = msg_matriz
 
     for j in range(len(msg_matriz[0])):
@@ -77,7 +80,7 @@ def de_enigma(msg, P, E):
     P_inv = np.linalg.inv(P)
     E_inv = np.linalg.inv(E)
   
-    msg_matriz = para_one_hot(msg)
+    msg_matriz, validacao = para_one_hot(msg)
     msg_decifrada = msg_matriz
 
     for j in range(len(msg_matriz[0])):
