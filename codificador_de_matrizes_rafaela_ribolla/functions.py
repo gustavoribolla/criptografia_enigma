@@ -24,12 +24,8 @@ def para_one_hot(msg):
 
     msg_matriz = np.array(msg_matriz)
     msg_matriz = msg_matriz.transpose()
-
-    # if len(msg_matriz) ==0:
-    #     return "Alguns dos caracteres da mensagem não estão no alfabeto. Por favor, insira apenas letras minúsculas."
     
     return msg_matriz, True
-
 
 def para_string(M):
    
@@ -49,7 +45,6 @@ def cifrar(msg, P):
     msg_cifrada = para_string(matriz_cifrada)
 
     return msg_cifrada
-
 
 def de_cifrar(msg, P):
 
@@ -93,4 +88,3 @@ def de_enigma(msg, P, E):
     msg_original = para_string(msg_decifrada)
 
     return msg_original
-
