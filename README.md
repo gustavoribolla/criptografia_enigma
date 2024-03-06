@@ -76,7 +76,7 @@ Retorno da palavra original.
 ### 5. Enigma: 
 
 Chama para_one_hot() para converter a mensagem em uma representação matricial;<br>
-Inicializa a matriz da mensagem cifrada como a matriz da mensagem original.
+Inicializa a matriz da mensagem cifrada como a matriz da mensagem original;
 Para cada coluna na matriz da mensagem cifrada, realiza o seguinte:<br>
 Calcula a matriz resultante da multiplicação entre P e a matriz da mensagem cifrada, representada abaixo:
 
@@ -98,7 +98,7 @@ Retorno da palavra cifrada.
 
 Calcula as inversas das matrizes de codificação P e de embaralhamento E usando np.linalg.inv();<br>
 Chama para_one_hot() para converter a mensagem em uma representação matricial;<br>
-Inicializa a matriz da mensagem decifrada como a matriz da mensagem original.
+Inicializa a matriz da mensagem decifrada como a matriz da mensagem original;
 Para cada coluna na matriz da mensagem decifrada, realiza o seguinte:<br>
 Calcula a matriz resultante da multiplicação entre a inversa de P e a matriz da mensagem decifrada, representada abaixo:
 
@@ -128,8 +128,8 @@ E = np.roll(np.eye(26, dtype=int), 2, axis=1)
 
 ### Instruções:
  
-1. Rode o arquivo "demo.py"<br>
-2. Escolha uma opção, entre: Cifra Simples, Cifra Enigma, Decifra Simples, Decifra Engima e Sair, respectivamente.<br>
+1. Rode o arquivo "demo.py";<br>
+2. Escolha uma opção, entre: Cifra Simples, Cifra Enigma, Decifra Simples, Decifra Engima e Sair, respectivamente;<br>
 3. Escreva o número da opção que deseja testar e em seguida, a palavra escolhida.
 
 ## API:
@@ -138,13 +138,13 @@ Execute o arquivo Python para iniciar o servidor Flask e com o servidor em execu
 
 ## Rotas:
 
-1. Inicial: Através da rota ('/'), retorna 200 se a API estiver funcionamento.
+1. Inicial: Através da rota ('/'), retorna 200 se a API estiver funcionamento;
 
-2. Cifrar: Através da rota ('/cifra'), método POST que devolve, dado uma palavra, sua forma cifrada.
+2. Cifrar: Através da rota ('/cifra'), método POST que devolve, dado uma palavra, sua forma cifrada;
 
-3. Decifrar: Através da rota ('/decifra'), método POST que devolve, dado uma palavra cifrada, sua forma decifrada.
+3. Decifrar: Através da rota ('/decifra'), método POST que devolve, dado uma palavra cifrada, sua forma decifrada;
 
-4. Enigma: Através da rota ('/enigma'), método POST que devolve, dado uma palavra, sua forma Enigma.
+4. Enigma: Através da rota ('/enigma'), método POST que devolve, dado uma palavra, sua forma Enigma;
 
 5. De Enigma: Através da rota ('/de_enigma'), método POST que devolve, dado uma palavra formato Enigma, sua forma original.
 
@@ -163,7 +163,7 @@ import codificador-de-matrizes-rafaela-ribolla
 1. [ChatGPT](https://chat.openai.com/) para saciar dúvidas relacionadas ao desenvolvimento;<br>
 2. [Site Horizontes](https://horizontes.sbc.org.br/index.php/2016/11/alan-turing-e-a-enigma/) para pesquisa da Enigma de Alan Turing;<br>
 3. [Site Medium](https://towardsdatascience.com/deep-dive-create-and-publish-your-first-python-library-f7f618719e14) para pesquisa sobre publicação da biblioteca;<br>
-4. [Site Clickup](https://doc.clickup.com/36904728/d/h/1367rr-543/246df89507b2ab3) para pesquisa sobre publicação da biblioteca;;
+4. [Site Clickup](https://doc.clickup.com/36904728/d/h/1367rr-543/246df89507b2ab3) para pesquisa sobre publicação da biblioteca.
 
 ## Equipe:
-Projeto desenvolvido por Gustavo Colombi Ribolla e Rafaela Aférri.
+Projeto desenvolvido por Gustavo Colombi Ribolla e Rafaela Afférri de Oliveira.
