@@ -26,14 +26,14 @@ Pastas e Arquivos organizados segundo o artigo de Joffrey Bienvenu, publicado em
 Criação da variável afabeto, com todas as 26 letras minúsculas do alfabeto;<br>
 Criação de uma matriz identidade 26x26 (alfabeto_matriz) usando np.eye (abaixo, um exemplo de matriz identidade 3x3):<br>
 
-$
-\boldsymbol{I_{3}} =
+$$
+\mathbf{I_3} =
 \begin{bmatrix}
     1 & 0 & 0\\
     0 & 1 & 0 \\
     0 & 0 & 1
 \end{bmatrix}
-$ 
+$$
 
 Iteração sobre cada caractere da mensagem (msg) e busca do índice correspondente no alfabeto;<br>
 Checa se a mensagem está vazia ou com caracteres diferentes da variável alfabeto, caso esteja, retorna "False";<br>
@@ -53,9 +53,9 @@ Retorno da mensagem em string.
 Chama para_one_hot() para converter a mensagem em uma representação matricial;<br>
 Realiza o produto de matriz entre a matriz de codificação P e a matriz da mensagem usando a função "np.dot", mas também representada por:<br>
 
-$
+$$
 Matriz \ Cifrada = Matriz \ Permutada \ @ \ Mensagem \ Matriz
-$
+$$
 
 Converte a matriz cifrada em uma string usando para_string();<br>
 Retorno da palavra cifrada.
@@ -66,9 +66,9 @@ Calcula a inversa da matriz de codificação P usando np.linalg.inv();<br>
 Chama para_one_hot() para converter a mensagem em uma representação matricial;<br>
 Realiza o produto de matriz entre a inversa da matriz P e a matriz da mensagem, usando a função "np.dot", mas também representada por:<br>
 
-$
+$$
 Matriz \ Decifrada = Inversa \ da \ Permutada \ @ \ Mensagem \ Matriz
-$
+$$
 
 Converte a matriz decifrada em uma string usando para_string();<br>
 Retorno da palavra original.
@@ -80,16 +80,16 @@ Inicializa a matriz da mensagem cifrada como a matriz da mensagem original.
 Para cada coluna na matriz da mensagem cifrada, realiza o seguinte:<br>
 Calcula a matriz resultante da multiplicação entre P e a matriz da mensagem cifrada, representada abaixo:
 
-$
+$$
 N \ Mensagem = Matriz \ Permutada \ @ \ Mensagem \ Cifrada
-$
+$$
 
 Atualiza a coluna da matriz da mensagem cifrada com os valores da matriz resultante;<br>
 Multiplica a matriz de codificação P pela matriz de embaralhamento E, representada abaixo:
 
-$
+$$
 Matriz \ Permutada = Matriz \ Permutada \ @ \ Matriz \ Embaralhamento
-$
+$$
 
 Converte a matriz da mensagem cifrada em uma string usando para_string();<br>
 Retorno da palavra cifrada.
@@ -102,16 +102,16 @@ Inicializa a matriz da mensagem decifrada como a matriz da mensagem original.
 Para cada coluna na matriz da mensagem decifrada, realiza o seguinte:<br>
 Calcula a matriz resultante da multiplicação entre a inversa de P e a matriz da mensagem decifrada, representada abaixo:
 
-$
+$$
 N \ Mensagem = Inversa \ da \ Permutada \ @ \ Mensagem \ Decifrada
-$
+$$
 
 Atualiza a coluna da matriz da mensagem decifrada com os valores da matriz resultante;<br>
 Multiplica a matriz inversa de P pela matriz inversa de E, representada abaixo:
 
-$
+$$
 Inversa \ da \ Permutada = Inversa \ da \ Permutada \ @ Inversa \ da \ Embaralhamento
-$
+$$
 
 Converte a matriz da mensagem decifrada em uma string usando para_string();<br>
 Essas são as operações matriciais realizadas em cada função do código;<br>
